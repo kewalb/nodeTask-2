@@ -1,9 +1,12 @@
-const { response } = require("express");
+import dotenv from 'dotenv'
 const express = require("express");
 const moment = require("moment");
 const app = express();
 
+dotenv.config()
+
 //middleware
+const PORT = process.env.PORT
 app.use(express.json());
 
 const rooms = [
@@ -157,4 +160,4 @@ console.log(room)
   response.send(room)
 })
 
-app.listen(9000);
+app.listen(PORT);
